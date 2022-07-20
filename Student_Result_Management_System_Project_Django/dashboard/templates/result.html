@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block main_wrapper %}
+    <div class="container-fluid" style="background-color:white">
+        <div class="row text-center d-block">
+            <h2 class="text-primary bold pb-25"><a href="{% url 'home' %}">Système de Gestion des Resulats des Etudiants</a></h2>
+        </div>
+        <h4 style="text-align:right"><a href="{% url 'dashboard:pdf' id=object.id %}" target="_blank">Save as PDF</a></h4>
+        
+        <div class="container" id="marksheet">
+            <p>
+                <b>Nom de l'Etudiant     : </b>  {{ object.select_student.student_name | safe }}
+            </p>
+            <p>
+                <b> Classe de l'Etudiant    : </b>  {{ object.select_class.class_name }}   ( <b>{{ object.select_class.section | safe }}</b> )
+            </p>
+            <p>
+                <b>Matricule de l'Etudiant : </b> {{ object.select_student.student_roll | safe }}
+            </p>
+            <h2 class="text-center text-primary">Feuille de marque</h2>
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom du sujet</th>
+                        <th scope="col">Marquer</th>
+                    </tr>
+                </thead>
+                <tbody id="table-row">
+                    
+                    {% for mark in marks %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            
+                            {% for m in mark %}
+                                <td>{{ m }}</td>
+                            {% endfor %}
+                                
+                        </tr>
+                    {% endfor %}
+                        
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="shadow-lg p-3">
+            <span class="link"><a href="{% url 'home' %}">Revenir à l'Accueil</a></span>
+        </div>
+    </div>   
+    
+{% endblock main_wrapper %}
+  

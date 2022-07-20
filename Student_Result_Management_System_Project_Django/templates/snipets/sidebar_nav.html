@@ -1,0 +1,58 @@
+<div class="sidebar-nav">
+    <ul class="side-nav color-gray">
+        <li class="nav-header">
+            <span class="">Catégorie Principale</span>
+        </li>
+        <li>
+            <a href="{% url 'dashboard:dashboard' %}"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span> </a>
+
+        </li>
+
+        <li class="nav-header">
+            <span class="">Apparence</span>
+        </li>
+        <li class="has-children">
+            <a href="#"><i class="fa fa-file-text"></i> <span>Filière de l'étudiants</span> <i class="fa fa-angle-right arrow"></i></a>
+            <ul class="child-nav">
+                <li><a href="{% url 'student_classes:create_class' %}"><i class="fa fa-bars"></i> <span>Créer la Filière</span></a></li>
+                <li><a href="{% url 'student_classes:class_list' %}"><i class="fa fa fa-server"></i> <span>Gérer
+                            Filière</span></a></li>
+
+            </ul>
+        </li>
+        <li class="has-children">
+            <a href="{% url 'subjects:subject_list' %}"><i class="fa fa-file-text"></i> <span>Matière</span> <i class="fa fa-angle-right arrow"></i></a>
+            <ul class="child-nav">
+                <li><a href="{% url 'subjects:create_subject' %}"><i class="fa fa-bars"></i> <span>Créer
+                            Matière</span></a></li>
+                <li><a href="{% url 'subjects:subject_list' %}"><i class="fa fa fa-server"></i> <span>Gérer
+                            Matière</span></a></li>
+                <li><a href="{% url 'subjects:create_subject_combination' %}"><i class="fa fa-newspaper-o"></i>
+                        <span>Ajouter un Module</span></a></li>
+                <a href="{% url 'subjects:subject_combination_list' %}"><i class="fa fa-newspaper-o"></i>
+                    <span>Gérer le Module </span></a>
+        </li>
+    </ul>
+    </li>
+    <li class="has-children">
+        <a href="{% url 'students:student_list' %}"><i class="fa fa-users"></i> <span>Etudiants</span> <i class="fa fa-angle-right arrow"></i></a>
+        <ul class="child-nav">
+            <li><a href="{% url 'students:student_create' %}"><i class="fa fa-bars"></i> <span>Ajouter Etudiant</span></a></li>
+            <li><a href="{% url 'students:student_list' %}"><i class="fa fa fa-server"></i> <span>Gérer
+                        Etudiant</span></a></li>
+
+        </ul>
+    </li>
+    <li class="has-children">
+        <a href="#"><i class="fa fa-info-circle"></i> <span>Resultat</span> <i class="fa fa-angle-right arrow"></i></a>
+        <ul class="child-nav">
+            <li><a href="{% url 'results:declare_result' %}"><i class="fa fa-bars"></i> <span>Ajouter Resultat</span></a></li>
+            <li><a href="{% url 'results:result_list' %}"><i class="fa fa fa-server"></i> <span>Gérer
+                        Resultat</span></a></li>
+
+        </ul>
+    <li><a href="{% url 'dashboard:change_password' %}"><i class="fa fa fa-server"></i> <span>Changer le Mot de Passe Admin
+                    </span></a></li>
+
+    </li>
+</div>

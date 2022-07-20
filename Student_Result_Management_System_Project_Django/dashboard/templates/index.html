@@ -1,0 +1,208 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial scale=1.0"/>
+        <title> Bienvenu sur la plateforme de consultation des notes! </title>
+        <link rel="stylesheet" type="text/css" href="./static/css/new/fermoss.css">
+    </head>
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+<body> 
+
+
+{% block main_wrapper %}  
+
+<div id="global">
+    
+    <div id="header"   >    </div>
+    <div id="header-1" >  </div>
+    <div id="header-2" >  </div>
+  
+    <div id="menu-bar">  
+        <img  class="col-6" src="./static/images/bagg.jpg" alt="logo" alt="Logo HTML w3" style="width:7%; height:auto">
+        
+        <ul>    
+             <li class="active"> 
+                  <a href="#">PRESENTATION</a> </li>            
+             <li class="active"> <a href="#">ACTUALITÉS</a> </li>
+             <li class="active"> <a href="#">EMPLOIS</a> </li> 
+             <li class="active"> <a href="#">RESTAURANT </a> </li> 
+             <li class="active"> <a href="#">CONTACTS</a> </li>  
+        </ul>
+    
+    
+    </div>
+    <div id="contenu">
+        <div id="right"> 
+            <h2 align="center" style="font-family: Lucida Handwriting; color:#F07; "> BIENVENU AU SYSTÈME DE GESTION DES NOTES (FSEA)</h2>
+            <div  style="margin-left: 3% ;margin-right:3%; text-align:justify">
+                <h5>  <p>La Faculté des Sciences Exactes et Appliquées (FSEA), créée en 1971, est située sur le campus de Farcha.
+                  Elle dispose d'une large gamme de formations en Licence et Master couvrant plusieurs domaines scientifiques
+                  et techniques. Les huits (8) départements dispensent des enseignements en français et en arabe.Il fait parti des sept (7)
+                  facultés de: l' <a href="https://www.universite-ndjamena.td/formation/facultes/faculte-des-sciences-exactes-et-appliquees/" target="_blank">Université de N'Djamena <a/> </p> 
+                  <p>
+                </h5>
+                    <img  style = "width: 50%;" src="./static/images/plateforme.jpg" alt="bbb">
+                    <img  style = "width: 45%;" src="./static/images/DAF.jpg" alt="bbb">
+                    <h5>   <p> Ce système est conçu pour faciliter la consultation des notes des étudiants
+                        mais aussi pour permettre aux enseignant de la Faculté des Sciences Exactes de pouvoir
+                        inserer les notes des étudiants quelqu'en soit leur situation geographique.     
+                    </p>
+        <p> cette section vous permettra de vous connecter et d'inserer les note d'étudiants (cas des enseignants ) et consulter les notes(cas des étudiants) </p> </h5>
+                <section>
+                </div>
+                    <div class="col-lg-5 visible-lg-block">
+                        <section class="section">
+                            <div class="row mt-80">
+                                <div class="col-md-10 col-md-offset-1 pt-20">
+                                    <div class="row mt-30 ">
+                                        <div class="col-md-11">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title text-center bg-primary">
+                                                        <h4>ETUDIANTS</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body p-10">
+        
+                                                    <div class="section-title">
+                                                       <center>
+                                                           <p class="sub-title">CONSULTATION DE LA NOTE</p>
+                                                           <p style=color:red;> veuillez entrer votre matricule et votre classe</p>
+                                                    
+                                                    </center>
+                                                    </div>
+                                                    
+                                                    <form class="form-horizontal" method="post">
+                                                        <div class="form-group">
+                                                            <label for="inputEmail3" class="col-sm-6 control-label">Recherchez votre resultat ici!
+                                                                </label>
+                                                            <div class="col-sm-6">
+                                                                <a href="{% url 'dashboard:find_result' %}" class="btn btn-primary">cliquer ici! </a>
+                                                            </div>
+                                                        </div>
+        
+                                                    </form>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!-- /.panel -->
+                                        <p style="font-family: Lucida Handwriting;text-align:justify"> NB: Dans cette section ci-dessus vous vous entrerez votre matricule et 
+                                            votre matière et il vous affichera toutes vos notes si vous avez effectivement composé ses matière. 
+                                            Veuillez noter que l'affichage des note est classé suivant un ordre que vous dévez respecter.</p>  
+         
+                                        </div>
+                                        <!-- /.col-md-11 -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.col-md-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </section>
+                    </div>
+                    <div class="col-lg-6">
+                        <section class="section">
+                            <div class="row mt-80">
+                                <div class="col-md-10 col-md-offset-1 pt-20">
+        
+                                    <div class="row mt-30 ">
+                                        <div class="col-md-11">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title text-center bg-primary">
+                                                        <h4 >INTERFACE ADMINISTRATEUR</h4>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body p-20">
+        
+                                                    <div class="section-title">
+                                                        <center><p class="sub-title"> GESTION DE RESULTAT D'ETUDIANTS (FSEA)</p></center>
+                                                    </div>
+        
+                                                    <form class="form-horizontal" method="post"> {% csrf_token %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{ message }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="inputEmail3" class="col-sm-2 control-label">Nom:</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" name="username" class="form-control" id="inputEmail3"
+                                                                    placeholder="UserName">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="inputPassword3" class="col-sm-2 control-label">Mot de Passe</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="password" name="password" class="form-control" id="inputPassword3"
+                                                                    placeholder="Password">
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="form-group mt-20">
+                                                            <div class="col-sm-offset-2 col-sm-10">
+        
+                                                                <button type="submit" name="login" class="btn btn-primary btn-labeled pull-right">S'identifier
+                                                                    <span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                   
+                                                </div>
+                                            </div>
+                                            <!-- /.panel -->
+                                            <p class="text-muted text-center"><small>Copyright © <a href="https://www.facebook.com/adoumadji.fermoss">ADOUMADJI MBAÏORNOM FERMAUD</a> 2022</small></p>
+                                        </div>
+                                        <!-- /.col-md-11 -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.col-md-12 -->
+                                
+                            </div>
+                            <!-- /.row -->
+                        </section>
+                        
+                        
+                  
+                    </div>
+                    
+                        <img  style = "width: 48%; height: 20%;  margin-left: 3%; " src="./static/images/etudiant.jpg" alt="bbb">
+                        <img  style="width:40%; margin-right:6%; margin-left: 1%;" src="./static/images/ETU.jpg" alt="bbb">
+                      
+                </div>
+                
+           </div> 
+           aaa
+        </div >
+        
+    </div>
+    aaaa
+    <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+    </div>
+    
+    
+        <div id="footer" style="fin; size:20px;">
+          <p> POUR TOUTE INFORMATION VEILLEZ CONTACTER: (+235 66-62-46-28) 
+            <br> <small>Copyright © <a href="https://www.facebook.com/adoumadji.fermoss" target="_blank">ADOUMADJI MBAÏORNOM FERMAUD</a> 2022</small>
+            <br>Data Developper Inginer
+        </p>
+        
+    </div> 
+    
+             
+    </body>
+
+{% endblock main_wrapper %}
+
+</html>
+      
+    
+        
